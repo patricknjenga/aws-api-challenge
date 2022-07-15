@@ -1,0 +1,18 @@
+version: '3.9'
+services:
+    api:
+        build: ./
+        environment:
+            - MONGO_DSN=mongodb://mongo
+        ports:
+            - '80:80'
+        volumes:
+            - ./:/app
+    mongo:
+        image: mongo
+        ports:
+            - '27017:27017'
+        volumes:
+            - mongo:/data/db
+volumes:
+    mongo:
