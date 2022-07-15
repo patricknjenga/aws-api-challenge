@@ -10,18 +10,18 @@ class CustomerHateoas
 {
 	use CreatesLinks;
 
-	public function self(Customer $model): ?Link
+	public function self(Customer $customer): ?Link
 	{
-		return $this->link('model.show', ['model' => $model]);
+		return $this->link('customer.show', ['customer' => $customer]);
 	}
 
-	public function delete(Customer $model): ?Link
+	public function delete(Customer $customer): ?Link
 	{
-		return $this->link('model.destroy', ['model' => $model]);
+		return $this->link('customer.destroy', ['customer' => $customer]);
 	}
 
-	public function update(Customer $model): ?Link
+	public function update(Customer $customer): ?Link
 	{
-		return $this->link('model.update', ['model' => $model]);
+		return $this->link('customer.update', ['customer' => $customer]);
 	}
 }
